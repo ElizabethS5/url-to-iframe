@@ -39,7 +39,8 @@ input:focus {
   flex-grow: 4;
 }
 
-h1 {
+h1,
+p {
   margin: 0.1rem;
 }
 
