@@ -23,15 +23,18 @@ input {
   border-color: limegreen;
   margin: 0.5rem;
   line-height: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
 }
 
+/* https://newbedev.com/html-input-highlight-color-css-code-example */
 input:focus {
   outline: none !important;
   border-color: lime;
   box-shadow: 0 0 1rem lime;
 }
 
-#server {
+#domain {
   flex-grow: 1;
 }
 
@@ -48,6 +51,40 @@ button {
   background-color: black;
   border-color: limegreen;
   color: limegreen;
+  /* color: black; */
   border-radius: 50%;
   min-width: 3.5rem;
+  /* background: radial-gradient(at 40% 40%, lime, black); */
+}
+
+button:hover {
+  font-size: 1rem;
+  color: lime;
+  transition: font-size 0.1s, color 0.1s ease-in;
+}
+
+button:active {
+  font-size: 0.8rem;
+  color: green;
+  transition: font-size 0.1s, color 0.1s ease-in;
+}
+
+/* https://stackoverflow.com/a/45023797/16921721 */
+div {
+  margin-top: 1.5rem;
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+  -moz-transition: opacity 1s ease-in;
+  -webkit-transition: opacity 1s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  -moz-transition: opacity 1s ease-out;
+  -webkit-transition: opacity 1s ease-out;
 }
