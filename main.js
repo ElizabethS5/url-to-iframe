@@ -5,15 +5,13 @@ const savedomainButton = document.getElementById("save");
 const messageDiv = document.getElementById("message");
 const regex = /\/modules\S+index\.html/;
 
-let defaultdomainString = domainInput.value;
+// let defaultdomainString = domainInput.value;
+let domainString = "";
 let localdomainString = localStorage.getItem("domain");
-let domainString;
-if (localdomainString === null) {
-  localStorage.setItem("domain", defaultdomainString);
-  domainString = defaultdomainString;
-} else {
+if (localdomainString !== null) {
   domainString = localdomainString;
   domainInput.value = localdomainString;
+  urlInput.disabled = false;
 }
 let urlString = "";
 
@@ -28,8 +26,17 @@ urlInput.addEventListener("input", (e) => {
   showMessage("iframe copied to clipboard");
 });
 
+urlInput.addEventListener("mouseenter", (e) => {
+  urlInput.focus();
+});
+
 domainInput.addEventListener("input", (e) => {
   domainString = domainInput.value.trim();
+  if (domainString === "") {
+    urlInput.disabled = true;
+  } else {
+    urlInput.disabled = false;
+  }
 });
 
 clearButton.addEventListener("click", clearUrlInput);

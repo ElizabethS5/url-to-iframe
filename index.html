@@ -13,13 +13,20 @@
     <p>Paste or drag the entire URL from a Netlify page into the url input.</p>
     <main>
       <button id="save">Save</button>
-      <input type="text" id="domain" value="" placeholder="domain" />
+      <input
+        type="text"
+        id="domain"
+        value=""
+        placeholder="domain"
+        spellcheck="false"
+      />
       <input
         type="text"
         id="page-url"
         placeholder="url"
         onclick="this.select()"
         autofocus
+        disabled
       />
       <button id="clear">Clear</button>
     </main>
