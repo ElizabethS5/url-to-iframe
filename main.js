@@ -3,7 +3,7 @@ const urlInput = document.getElementById("page-url");
 const clearButton = document.getElementById("clear");
 const savedomainButton = document.getElementById("save");
 const messageDiv = document.getElementById("message");
-const regex = /(\/modules\S+)/;
+const regex = /\/modules\S+index\.html/;
 
 let defaultdomainString = domainInput.value;
 let localdomainString = localStorage.getItem("domain");
@@ -32,10 +32,7 @@ domainInput.addEventListener("input", (e) => {
   domainString = domainInput.value.trim();
 });
 
-clearButton.addEventListener("click", (e) => {
-  urlString = "";
-  urlInput.value = "";
-});
+clearButton.addEventListener("click", clearUrlInput);
 
 savedomainButton.addEventListener("click", (e) => {
   domainString = domainInput.value.trim();
@@ -50,8 +47,14 @@ function showMessage(message) {
   setTimeout((e) => {
     messageDiv.classList.remove("fade-in");
     messageDiv.classList.add("fade-out");
+    clearUrlInput();
   }, 1500);
   setTimeout((e) => {
     messageDiv.innerText = "";
   }, 3000);
+}
+
+function clearUrlInput() {
+  urlString = "";
+  urlInput.value = "";
 }
